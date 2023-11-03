@@ -122,3 +122,8 @@ body {
     content: "\2709";
     margin:2px;
   }
+  @media only screen and (min-width: 1920px); {
+    p {
+      font-size: 8px;
+    }
+  }
