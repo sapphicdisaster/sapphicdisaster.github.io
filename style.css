@@ -129,9 +129,9 @@ body {
   }
   @media only screen and (max-width: 800px) {
     p {
-      font-size: 4px;
+      font-size: 2px;
     }
     main {
-      font-size:8px;
+      font-size:6px;
     }
   }
