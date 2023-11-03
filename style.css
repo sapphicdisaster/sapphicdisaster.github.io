@@ -129,9 +129,9 @@ body {
   }
   @media only screen and (max-width: 800px) {
     p {
-      font-size: 6px;
+      font-size: 7px;
     }
-    ul li {
-      font-size:10px;
+    ul li,a {
+      font-size:12px;
     }
   }
