@@ -122,8 +122,13 @@ body {
     content: "\2709";
     margin:2px;
   }
-  @media only screen and (max-width: 1920px) {
+  @media only screen and (max-width: 1920px) and (min-width: 801px) {
     p {
       font-size: 8px;
+    }
+  }
+  @media only screen and (max-width: 800px) {
+    p {
+      font-size: 6px;
     }
   }
