@@ -17,7 +17,7 @@ h4
 }
 
 a {
-    color:teal;
+    color:#63b7b7;
   }
   a::before {
     content: "\2709";
