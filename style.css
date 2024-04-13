@@ -1,3 +1,8 @@
+@media only screen and (max-width: 1024px) {
+  body section.container {
+    width:80%
+}
+
 body {
   color: #ccc;
   background: #111;
