@@ -1,5 +1,6 @@
 @media only screen and (max-width: 1024px) {
-  body section.container {
+  body section.container,
+  body section h4{
     width:80%;
 }
 
