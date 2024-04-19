@@ -497,13 +497,13 @@ section {
 }
 
 .glitch::before {
-  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
-    font 8s step-end infinite, movement 10s step-end infinite;
+  animation: paths 15s step-end infinite, opacity 15s step-end infinite,
+    font 20s step-end infinite, movement 30s step-end infinite;
 }
 
 .glitch::after {
-  animation: paths 5s step-end infinite, opacity 5s step-end infinite,
-    font 7s step-end infinite, movement 8s step-end infinite;
+  animation: paths 15s step-end infinite, opacity 15s step-end infinite,
+    font 25s step-end infinite, movement 35s step-end infinite;
 }
 
 .hero-container {
