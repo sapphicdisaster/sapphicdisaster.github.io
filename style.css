@@ -72,10 +72,16 @@ body {
     background: #111;
     font-family: "VT323", "Inconsolata", monospace, sans-serif;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     position: relative;
     font-size: 1.2em;
+}
+
+#main-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 h1,
