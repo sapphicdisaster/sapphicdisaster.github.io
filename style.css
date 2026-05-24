@@ -80,7 +80,7 @@ body {
 
 h1,
 h2,
-h4 {
+h2.subtitle {
     margin: 0;
 }
 
@@ -102,6 +102,33 @@ a {
     font-size: 1.5em;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.sr-only:focus {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    background: #111;
+    color: #63b7b7;
+    border: 2px solid #63b7b7;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
 /* ─── Hero ───────────────────────────────────────────────────────────────── */
 
 .hero-container {
@@ -114,9 +141,11 @@ a {
     text-align: center;
 }
 
-.hero-container h4 {
+.hero-container h2.subtitle {
     border-top: 2px solid teal;
     width: 30%;
+    font-size: 1.2em;
+    font-weight: normal;
 }
 
 .animated-text {
@@ -602,7 +631,7 @@ ul li::before {
 
 @media only screen and (max-width: 1024px) {
     body section.container,
-    body section.hero-container h4 {
+    body section.hero-container h2.subtitle {
         width: 80%;
     }
 }
