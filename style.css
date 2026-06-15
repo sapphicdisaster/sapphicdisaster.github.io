@@ -70,7 +70,7 @@ body::after {
 body {
     color: #ccc;
     background: #111;
-    font-family: "VT323", "Inconsolata", monospace, sans-serif;
+    font-family: "Inconsolata", monospace, sans-serif;
     display: flex;
     justify-content: center;
     position: relative;
@@ -88,14 +88,15 @@ h1,
 h2,
 h2.subtitle {
     margin: 0;
+    font-family: "Press Start 2P", monospace;
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 2.2em;
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 1.25em;
 }
 
 section {
@@ -149,9 +150,11 @@ a {
 
 .hero-container h2.subtitle {
     border-top: 2px solid teal;
-    width: 30%;
-    font-size: 1.2em;
+    width: 45%;
+    font-size: 0.65em;
     font-weight: normal;
+    line-height: 1.6;
+    padding-top: 5px;
 }
 
 .animated-text {
@@ -246,6 +249,8 @@ ul li::before {
     color: #63b7b7;
     border: 2px solid #63b7b7;
     background: rgba(0, 60, 60, 0.5);
+    font-family: "Press Start 2P", monospace;
+    font-size: 0.6em;
     font-weight: bold;
     text-shadow: 0 1px 2px #000;
 }
@@ -272,8 +277,9 @@ ul li::before {
     border: 1px solid #008877;
     background: rgba(0, 30, 30, 0.2);
     box-shadow: 0 0 3px rgba(0, 191, 163, 0.15);
-    font-family: "VT323", monospace;
-    letter-spacing: 2px;
+    font-family: "Press Start 2P", monospace;
+    font-size: 0.6em;
+    letter-spacing: 1px;
     position: relative;
     animation: subtle-flicker 10s infinite;
 }
@@ -315,9 +321,9 @@ ul li::before {
     color: #859491;
     border: 1px solid #3c4a47;
     background: transparent;
-    font-family: "VT323", monospace;
-    letter-spacing: 2px;
-    font-size: 1em;
+    font-family: "Press Start 2P", monospace;
+    letter-spacing: 1px;
+    font-size: 0.55em;
 }
 
 .open-directory::before {
