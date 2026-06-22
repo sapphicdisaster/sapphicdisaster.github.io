@@ -135,17 +135,25 @@ h1.animated-text {
     font-size: 1.2rem;
     line-height: 1.5;
     text-transform: uppercase;
-    background-image: linear-gradient(-225deg, #008080 0%, #40e0d0 29%, #aaf0d1 67%, #008080 100%);
-    background-size: 200% auto;
+    
+    /* Hard-edged stripes for a Tetris-like blocky look */
+    background-image: linear-gradient(90deg, 
+        var(--border-color) 0%, var(--border-color) 25%, 
+        var(--console-fg) 25%, var(--console-fg) 50%, 
+        var(--highlight) 50%, var(--highlight) 75%, 
+        var(--border-color) 75%, var(--border-color) 100%
+    );
+    background-size: 60px auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Blockier, step-based animation for style and low-end hardware performance */
-    animation: textclip 3s steps(5) infinite;
+    
+    /* Shifts the background by exactly one block per step */
+    animation: textclip 1s steps(4) infinite;
 }
 
 @keyframes textclip {
-    to { background-position: 200% center; }
+    to { background-position: 60px center; }
 }
 
 h2.subtitle {
