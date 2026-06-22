@@ -260,16 +260,16 @@ ul li::before {
 
 @media print {
     body {
-        background: white !important;
-        color: black !important;
+        background: white;
+        color: black;
         margin: 0;
         padding: 0;
     }
     body::before, body::after {
-        display: none !important;
+        display: none;
     }
     .terminal-container {
-        display: none !important;
+        display: none;
     }
     
     /* B&W Business Card Layout */
