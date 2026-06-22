@@ -140,7 +140,8 @@ h1.animated-text {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: textclip 2s linear infinite;
+    /* Blockier, step-based animation for style and low-end hardware performance */
+    animation: textclip 3s steps(5) infinite;
 }
 
 @keyframes textclip {
