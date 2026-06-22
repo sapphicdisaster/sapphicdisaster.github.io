@@ -9,35 +9,51 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&amp;family=Press+Start+2P&amp;display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;700&family=Press+Start+2P&display=swap"
             rel="stylesheet"
         />
     </head>
     <body>
         <a href="#main-content" class="sr-only">Skip to main content</a>
-        <main id="main-content">
-        <section class="hero-container">
-            <h1 class="animated-text">Skye Amaryllis</h1>
-            <h2 class="subtitle">Freelance IT Specialist & Web Designer</h2>
-        </section>
+        
+        <main id="main-content" class="terminal-container">
+            <div class="panel-outline">
+                <div class="panel-header">
+                    <span>/// AMITIEL_NODE: SKYE</span>
+                    <span class="header-decor">STATUS: ONLINE</span>
+                </div>
+                <div class="panel-content">
+                    <section class="hero-container">
+                        <h1 class="animated-text">Skye Amaryllis</h1>
+                        <h2 class="subtitle">Freelance IT Specialist & Web Designer</h2>
+                    </section>
 
-        <section class="container">
-            <h2>Services</h2>
-            <ul>
-                <li>software/hardware consultation</li>
-                <li>repair/replace service</li>
-                <li>web design and project management</li>
-            </ul>
-            <a href="mailto:skye@emailengine.org" class="contact-link" aria-label="Contact Skye Amaryllis via email"
-                >contact me</a
-            >
-            <a href="https://id.lesbia.nz/bridge" class="glitch-portal" aria-label="Ascend to interactive terminal adventure"
-                >ASCEND</a
-            >
-            <a href="https://id.lesbia.nz" class="open-directory" aria-label="Open professional directory"
-                >OPEN_DIRECTORY</a
-            >
-        </section>
+                    <section class="services-container">
+                        <div class="services-header">>> AVAILABLE_SERVICES:</div>
+                        <ul>
+                            <li>software/hardware consultation</li>
+                            <li>repair/replace service</li>
+                            <li>web design and project management</li>
+                        </ul>
+                    </section>
+                    
+                    <section class="actions-container">
+                        <a href="mailto:skye@emailengine.org" class="btn-action" aria-label="Contact Skye Amaryllis via email">
+                            <span class="btn-icon">>></span> INITIATE_CONTACT
+                        </a>
+                    </section>
+                </div>
+            </div>
         </main>
+        
+        <!-- Print-only business card layout -->
+        <div class="print-card">
+            <h1>Skye Amaryllis</h1>
+            <h2>IT Specialist & Web Designer</h2>
+            <div class="print-details">
+                <p>skye@emailengine.org</p>
+                <p>Consultation • Repair • Web Design</p>
+            </div>
+        </div>
     </body>
 </html>

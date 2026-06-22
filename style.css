@@ -1,36 +1,23 @@
-/* ─── Background: holo-grid + scanlines ─────────────────────────────────── */
+/* ─── Variables (Teal / Cyan Colorscheme) ────────────────────────────────── */
+:root {
+    --console-bg: #051a1a;
+    --console-fg: #40e0d0;
+    --border-color: #008080;
+    --header-bg: rgba(0, 128, 128, 0.2);
+    --highlight: #aaf0d1;
+    --muted: #63b7b7;
+}
 
+/* ─── Background: holo-grid + scanlines ─────────────────────────────────── */
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     background-image:
-        linear-gradient(rgba(0, 255, 200, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 200, 0.1) 1px, transparent 1px),
-        linear-gradient(
-            45deg,
-            transparent 49.5%,
-            rgba(0, 255, 200, 0.08) 50%,
-            rgba(0, 255, 200, 0.08) 50.5%,
-            transparent 51%
-        ),
-        linear-gradient(
-            -45deg,
-            transparent 49.5%,
-            rgba(0, 255, 200, 0.08) 50%,
-            rgba(0, 255, 200, 0.08) 50.5%,
-            transparent 51%
-        ),
-        radial-gradient(circle, rgba(0, 255, 200, 0.12) 1px, transparent 2px);
-    background-size:
-        40px 40px,
-        40px 40px,
-        20px 20px,
-        20px 20px,
-        80px 80px;
+        linear-gradient(rgba(0, 255, 200, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 200, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
     z-index: -2;
     pointer-events: none;
     box-shadow: 0 0 80px 10px rgba(0, 255, 200, 0.08) inset;
@@ -39,10 +26,8 @@ body::before {
 body::after {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     pointer-events: none;
     z-index: -1;
     background: repeating-linear-gradient(
@@ -53,597 +38,263 @@ body::after {
         transparent 4px
     );
     animation: scanlines-move 2s linear infinite;
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 @keyframes scanlines-move {
-    0% {
-        background-position-y: 0;
-    }
-    100% {
-        background-position-y: 4px;
-    }
+    0% { background-position-y: 0; }
+    100% { background-position-y: 4px; }
 }
 
 /* ─── Base ───────────────────────────────────────────────────────────────── */
-
 body {
-    color: #ccc;
-    background: #111;
+    color: var(--console-fg);
+    background: #020a0a;
     font-family: "Inconsolata", monospace, sans-serif;
     display: flex;
     justify-content: center;
-    position: relative;
-    font-size: 1.2em;
-}
-
-#main-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-}
-
-h1,
-h2,
-h2.subtitle {
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
-    font-family: "Press Start 2P", monospace;
-}
-
-h1 {
-    font-size: 2.2em;
-}
-
-h2 {
-    font-size: 1.25em;
-}
-
-section {
-    padding: 0 20px;
-}
-
-a {
-    color: #63b7b7;
-    text-decoration: none;
-    font-size: 1.5em;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
 
-.sr-only:focus {
-    position: absolute;
-    width: auto;
-    height: auto;
-    padding: 10px;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-    background: #111;
-    color: #63b7b7;
-    border: 2px solid #63b7b7;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-}
-
-/* ─── Hero ───────────────────────────────────────────────────────────────── */
-
-.hero-container {
+/* ─── Angelic Terminal Container (Digital Business Card) ─────────────────── */
+.terminal-container {
+    width: 100%;
+    max-width: 500px; /* Phone-optimized max width */
+    background-color: var(--console-bg);
+    font-family: "Press Start 2P", monospace;
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+.panel-outline {
+    border: 2px solid var(--border-color);
     position: relative;
-    padding: 20px;
-    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-outline::before {
+    content: "┌───┐";
+    position: absolute;
+    top: -10px; left: -2px;
+    background: var(--console-bg);
+    font-size: 0.6rem;
+    color: var(--console-fg);
+}
+
+.panel-outline::after {
+    content: "└───┘";
+    position: absolute;
+    bottom: -10px; right: -2px;
+    background: var(--console-bg);
+    font-size: 0.6rem;
+    color: var(--console-fg);
+}
+
+.panel-header {
+    background: var(--header-bg);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+    color: var(--highlight);
+}
+
+.panel-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ─── Typography & Content ──────────────────────────────────────────────── */
+.hero-container {
     text-align: center;
 }
 
-.hero-container h2.subtitle {
-    border-top: 2px solid teal;
-    width: 45%;
-    font-size: 0.65em;
-    font-weight: normal;
-    line-height: 1.6;
-    padding-top: 5px;
-}
-
-.animated-text {
+h1.animated-text {
+    margin: 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
     text-transform: uppercase;
-    background-image: linear-gradient(
-        -225deg,
-        #008080 0%,
-        #40e0d0 29%,
-        #aaf0d1 67%,
-        #008080 100%
-    );
+    background-image: linear-gradient(-225deg, #008080 0%, #40e0d0 29%, #aaf0d1 67%, #008080 100%);
     background-size: 200% auto;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
-    display: inline-block;
 }
 
 @keyframes textclip {
-    to {
-        background-position: 200% center;
-    }
+    to { background-position: 200% center; }
 }
 
-/* ─── Services card ──────────────────────────────────────────────────────── */
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20%;
+h2.subtitle {
+    margin: 0.5rem auto 0;
+    font-size: 0.6rem;
+    color: var(--muted);
+    font-family: "Inconsolata", monospace;
+    font-weight: 300;
+    letter-spacing: 1px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+    width: 80%;
 }
 
-section.container {
-    background: repeating-linear-gradient(
-        35deg,
-        hsl(180 100% 25.1%) 0px 2px,
-        hsl(180 100% 20%) 0px 4px
-    );
-    mix-blend-mode: subtract;
-    border: 2px solid #444;
-    border-radius: 10px;
-    padding: 1.5rem;
-    color: #fff;
+.services-container {
+    font-size: 0.6rem;
+    line-height: 1.6;
+}
+
+.services-header {
+    color: var(--highlight);
+    margin-bottom: 0.5rem;
 }
 
 ul {
     list-style: none;
     padding-left: 0;
-    margin: 1rem 0;
-    text-align: center;
-    width: 100%;
-}
-
-section ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    list-style: none;
     margin: 0;
-    padding: 0;
-    gap: 5px;
-    font-size: 1.5em;
 }
 
 ul li {
     margin: 0.5rem 0;
     position: relative;
     padding-left: 1.5em;
-    text-align: left;
+    color: var(--muted);
 }
 
 ul li::before {
     content: "> ";
-    color: #63b7b7;
+    color: var(--highlight);
     position: absolute;
     left: 0;
-    font-family: inherit;
 }
 
 /* ─── Buttons ────────────────────────────────────────────────────────────── */
+.actions-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
 
-.contact-link {
-    display: block;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
+.btn-action {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    color: var(--console-bg);
+    background-color: var(--console-fg);
+    border: 2px solid var(--highlight);
+    text-decoration: none;
+    font-size: 0.7rem;
     text-align: center;
-    max-width: 220px;
-    width: 100%;
-    color: #63b7b7;
-    border: 2px solid #63b7b7;
-    background: rgba(0, 60, 60, 0.5);
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.6em;
-    font-weight: bold;
-    text-shadow: 0 1px 2px #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(64, 224, 208, 0.4);
 }
 
-.contact-link::before {
-    content: "\2709";
-    margin-right: 4px;
+.btn-action:hover {
+    background-color: var(--highlight);
+    box-shadow: 0 0 20px rgba(170, 240, 209, 0.8);
+    transform: translateY(-2px);
 }
 
-.contact-link:hover {
-    color: #aaf0d1;
-    border-color: #aaf0d1;
-    background: rgba(0, 80, 80, 0.7);
+.btn-icon {
+    margin-right: 5px;
 }
 
-.glitch-portal {
-    display: block;
-    margin: 1rem auto;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    max-width: 220px;
-    width: 100%;
-    color: #00bfa3;
-    border: 1px solid #008877;
-    background: rgba(0, 30, 30, 0.2);
-    box-shadow: 0 0 3px rgba(0, 191, 163, 0.15);
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.6em;
-    letter-spacing: 1px;
-    position: relative;
-    animation: subtle-flicker 10s infinite;
-}
-
-.glitch-portal::before {
-    content: ">> ";
-}
-
-@keyframes subtle-flicker {
-    0%,
-    96%,
-    100% {
-        opacity: 1;
+/* ─── Mobile Responsiveness ──────────────────────────────────────────────── */
+@media (max-width: 480px) {
+    .terminal-container {
+        border: none;
     }
-    97% {
-        opacity: 0.6;
+    .panel-outline::before,
+    .panel-outline::after {
+        display: none;
     }
-    98% {
-        opacity: 0.3;
+    h1.animated-text {
+        font-size: 1.1rem;
     }
-    99% {
-        opacity: 0.9;
+    h2.subtitle {
+        font-size: 0.55rem;
+    }
+    .btn-action {
+        font-size: 0.6rem;
+        padding: 0.6rem 0.8rem;
     }
 }
 
-.glitch-portal:hover {
-    color: #00ffaa;
-    border-color: #00ffaa;
-    box-shadow: 0 0 8px rgba(0, 255, 170, 0.4);
+/* ─── Print Layout (B&W Business Card) ───────────────────────────────────── */
+.print-card {
+    display: none;
 }
 
-.open-directory {
-    display: block;
-    margin: 0.25rem auto 1rem;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    max-width: 220px;
-    width: 100%;
-    color: #859491;
-    border: 1px solid #3c4a47;
-    background: transparent;
-    font-family: "Press Start 2P", monospace;
-    letter-spacing: 1px;
-    font-size: 0.55em;
-}
-
-.open-directory::before {
-    content: ">> ";
-}
-
-.open-directory:hover {
-    color: #bacac6;
-    border-color: #859491;
-}
-
-/* ─── Glitch effect (reserved — apply .glitch to a non-text element) ─────── */
-
-@keyframes paths {
-    0% {
-        clip-path: polygon(
-            19% 88%,
-            19% 4%,
-            39% 4%,
-            39% 14%,
-            76% 14%,
-            76% 52%,
-            23% 52%,
-            23% 35%,
-            19% 35%,
-            19% 8%,
-            36% 8%,
-            36% 31%,
-            73% 31%,
-            73% 16%,
-            1% 16%,
-            1% 56%,
-            50% 56%,
-            50% 8%
-        );
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+        margin: 0;
+        padding: 0;
     }
-    5% {
-        clip-path: polygon(
-            0% 29%,
-            44% 29%,
-            44% 83%,
-            94% 83%,
-            94% 56%,
-            11% 56%,
-            11% 64%,
-            94% 64%,
-            94% 70%,
-            88% 70%,
-            88% 32%,
-            18% 32%,
-            18% 96%,
-            10% 96%,
-            10% 62%,
-            9% 62%,
-            9% 84%,
-            68% 84%,
-            68% 50%,
-            52% 50%,
-            52% 55%,
-            35% 55%,
-            35% 87%,
-            25% 87%,
-            25% 39%,
-            15% 39%,
-            15% 88%,
-            52% 88%
-        );
+    body::before, body::after {
+        display: none !important;
     }
-    30% {
-        clip-path: polygon(
-            0% 53%,
-            93% 53%,
-            93% 62%,
-            68% 62%,
-            68% 37%,
-            97% 37%,
-            97% 89%,
-            13% 89%,
-            13% 45%,
-            51% 45%,
-            51% 88%,
-            17% 88%,
-            17% 54%,
-            81% 54%,
-            81% 75%,
-            79% 75%,
-            79% 76%,
-            38% 76%,
-            38% 28%,
-            61% 28%,
-            61% 12%,
-            55% 12%,
-            55% 62%,
-            68% 62%,
-            68% 51%,
-            0% 51%,
-            0% 92%,
-            63% 92%,
-            63% 4%,
-            65% 4%
-        );
+    .terminal-container {
+        display: none !important;
     }
-    45% {
-        clip-path: polygon(
-            0% 33%,
-            2% 33%,
-            2% 69%,
-            58% 69%,
-            58% 94%,
-            55% 94%,
-            55% 25%,
-            33% 25%,
-            33% 85%,
-            16% 85%,
-            16% 19%,
-            5% 19%,
-            5% 20%,
-            79% 20%,
-            79% 96%,
-            93% 96%,
-            93% 50%,
-            5% 50%,
-            5% 74%,
-            55% 74%,
-            55% 57%,
-            96% 57%,
-            96% 59%,
-            87% 59%,
-            87% 65%,
-            82% 65%,
-            82% 39%,
-            63% 39%,
-            63% 92%,
-            4% 92%,
-            4% 36%,
-            24% 36%,
-            24% 70%,
-            1% 70%,
-            1% 43%,
-            15% 43%,
-            15% 28%,
-            23% 28%,
-            23% 71%,
-            90% 71%,
-            90% 86%,
-            97% 86%,
-            97% 1%,
-            60% 1%,
-            60% 67%,
-            71% 67%,
-            71% 91%,
-            17% 91%,
-            17% 14%,
-            39% 14%,
-            39% 30%,
-            58% 30%,
-            58% 11%,
-            52% 11%,
-            52% 83%,
-            68% 83%
-        );
+    
+    /* B&W Business Card Layout */
+    .print-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 3.5in;
+        height: 2in;
+        border: 1px solid black;
+        margin: auto;
+        font-family: sans-serif;
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
     }
-    76% {
-        clip-path: polygon(
-            0% 26%,
-            15% 26%,
-            15% 73%,
-            72% 73%,
-            72% 70%,
-            77% 70%,
-            77% 75%,
-            8% 75%,
-            8% 42%,
-            4% 42%,
-            4% 61%,
-            17% 61%,
-            17% 12%,
-            26% 12%,
-            26% 63%,
-            73% 63%,
-            73% 43%,
-            90% 43%,
-            90% 67%,
-            50% 67%,
-            50% 41%,
-            42% 41%,
-            42% 46%,
-            50% 46%,
-            50% 84%,
-            96% 84%,
-            96% 78%,
-            49% 78%,
-            49% 25%,
-            63% 25%,
-            63% 14%
-        );
+    
+    .print-card h1 {
+        font-size: 16pt;
+        margin: 0 0 5px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
     }
-    90% {
-        clip-path: polygon(
-            0% 41%,
-            13% 41%,
-            13% 6%,
-            87% 6%,
-            87% 93%,
-            10% 93%,
-            10% 13%,
-            89% 13%,
-            89% 6%,
-            3% 6%,
-            3% 8%,
-            16% 8%,
-            16% 79%,
-            0% 79%,
-            0% 99%,
-            92% 99%,
-            92% 90%,
-            5% 90%,
-            5% 60%,
-            0% 60%,
-            0% 48%,
-            89% 48%,
-            89% 13%,
-            80% 13%,
-            80% 43%,
-            95% 43%,
-            95% 19%,
-            80% 19%,
-            80% 85%,
-            38% 85%,
-            38% 62%
-        );
-    }
-    1%,
-    7%,
-    33%,
-    47%,
-    78%,
-    93% {
-        clip-path: none;
-    }
-}
-
-@keyframes opacity {
-    0% {
-        opacity: 0.1;
-    }
-    5% {
-        opacity: 0.7;
-    }
-    30% {
-        opacity: 0.4;
-    }
-    45% {
-        opacity: 0.6;
-    }
-    76% {
-        opacity: 0.4;
-    }
-    90% {
-        opacity: 0.8;
-    }
-    1%,
-    7%,
-    33%,
-    47%,
-    78%,
-    93% {
-        opacity: 0;
-    }
-}
-
-@keyframes font {
-    0% {
-        font-weight: 100;
-        color: #e0287d;
-        filter: blur(3px);
-    }
-    20% {
-        font-weight: 500;
-        color: #fff;
-        filter: blur(0);
-    }
-    50% {
-        font-weight: 300;
-        color: #1bc7fb;
-        filter: blur(2px);
-    }
-    60% {
-        font-weight: 700;
-        color: #fff;
-        filter: blur(0);
-    }
-    90% {
-        font-weight: 500;
-        color: #e0287d;
-        filter: blur(6px);
-    }
-}
-
-.glitch span {
-    animation: paths 5s step-end infinite;
-}
-.glitch::before {
-    animation:
-        paths 15s step-end infinite,
-        opacity 15s step-end infinite,
-        font 20s step-end infinite;
-}
-.glitch::after {
-    animation:
-        paths 15s step-end infinite,
-        opacity 15s step-end infinite,
-        font 25s step-end infinite;
-}
-
-/* ─── Responsive ─────────────────────────────────────────────────────────── */
-
-@media only screen and (max-width: 1024px) {
-    body section.container,
-    body section.hero-container h2.subtitle {
+    
+    .print-card h2 {
+        font-size: 9pt;
+        margin: 0 0 15px 0;
+        font-weight: normal;
+        border-bottom: 1px solid black;
+        padding-bottom: 5px;
         width: 80%;
+    }
+    
+    .print-details p {
+        font-size: 8pt;
+        margin: 3px 0;
     }
 }
